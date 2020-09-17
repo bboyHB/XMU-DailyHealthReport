@@ -13,7 +13,7 @@ logfile = 'log.txt'
 
 
 def report(uid, psw):
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(executable_path='chromedriver.exe')
     try:
         driver.get("http://xmuxg.xmu.edu.cn/xmu/app/214")
         sleep(5)
