@@ -7,10 +7,10 @@
 PS：仅供辅助与测试，勿依赖，勿传播，请遵守学校规定准确提交防疫健康信息。[狗头保命]
 
 # 使用步骤
-1，需要安装谷歌浏览器。
-2，将项目中的main.py和Chromedriver.exe下载下来放到一个文件夹中。
-3，修改main.py中的学号信息。
-4，cd 到文件夹，并用命令行 python main.py 启动（用IDE运行也行）。
+1，需要安装谷歌浏览器。<br/>
+2，将项目中的main.py和Chromedriver.exe下载下来放到一个文件夹中。<br/>
+3，修改main.py中的学号信息。<br/>
+4，cd 到文件夹，并用命令行 python main.py 启动（用IDE运行也行）。<br/>
 
 
 # 更新日志
