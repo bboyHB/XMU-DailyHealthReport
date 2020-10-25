@@ -8,9 +8,11 @@ PS：仅供辅助与测试，勿依赖，勿传播，请遵守学校规定准确
 
 # 使用步骤
 1，需要安装谷歌浏览器。<br/>
-2，将项目中的main.py和Chromedriver.exe下载下来放到一个文件夹中。<br/>
-3，修改main.py中的学号信息。<br/>
-4，打开命令控制台，cd 到文件夹，并用命令行 python main.py 启动（用IDE运行也行）。<br/>
+2，需要安装python环境，建议python 3.6及以上。<br/>
+3，需要安装python的第三方库selenium，可使用pip install selenium命令安装。<br/>
+4，将项目中的main.py和Chromedriver.exe下载下来放到一个文件夹中。<br/>
+5，修改main.py中的学号信息。<br/>
+6，打开命令控制台，cd 到文件夹，并用命令行 python main.py 启动（用IDE运行也行）。<br/>
 
 一直挂着程序即可
 
