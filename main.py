@@ -6,14 +6,14 @@ from datetime import datetime
 student_id = '12345'
 # 密码
 password = 'xxxxx'
-# 时间戳
-time_stamp = "{0:%Y-%m-%d-%H-%M-%S/}".format(datetime.now())
 # 日志
 logfile = 'log.txt'
 
 
 def report(uid, psw):
+    time_stamp = "{0:%Y-%m-%d-%H-%M-%S/}".format(datetime.now())
     driver = webdriver.Chrome(executable_path='chromedriver.exe')
+    success = True
     try:
         driver.get("http://xmuxg.xmu.edu.cn/xmu/app/214")
         sleep(5)
@@ -40,28 +40,35 @@ def report(uid, psw):
 
         with open(logfile, 'a') as file_object:
             file_object.write("\n" + time_stamp + "----成功")
-        print("OK")
+        print(time_stamp + "-OK")
     except:
         with open(logfile, 'a') as file_object:
             file_object.write("\n" + time_stamp + "----失败！！！！！！！")
-        print("不OK")
+        print(time_stamp + "-不OK")
+        success = False
     driver.quit()
+    return success
 
 
-def main():
+def main(done_today=False):
     # 定时每天
     while True:
-        # 判断是否达到设定时间，例如12:00
+        # 判断是否达到设定时间
         while True:
             now = datetime.now()
-            # 到达设定时间，结束内循环
-            if now.hour == 12 and now.minute == 0:
+            # 每小时检查一次
+            if not done_today and 7 <= now.hour <= 18 and now.minute == 0:
                 break
-            # 不到时间就等20秒之后再次检测
-            sleep(50)
+            # 每天凌晨1点重置
+            if now.hour == 1 and 0 <= now.minute <= 1:
+                done_today = False
+            # 不到时间就等60秒之后再次检测
+            sleep(60)
         # 一天打卡一次
-        report(student_id, password)
+        if not done_today:
+            done_today = report(student_id, password)
 
 
 if __name__ == '__main__':
-    main()
+    # 若今天已经打卡，就main(True)，否则就main()，防止每小时都自动跳浏览器出来
+    main(True)
