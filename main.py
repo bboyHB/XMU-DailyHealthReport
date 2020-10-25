@@ -2,6 +2,13 @@ from selenium import webdriver
 from time import sleep
 from datetime import datetime
 
+"""
+程序每天凌晨会将签到状态重置
+从早上7点到下午6点每隔一小时会检测一下是否签到
+若是当天已经签到，就会跳过；
+若没有签到，就会执行签到，若是签到失败，程序就会过一个小时再试。
+"""
+
 # 学号
 student_id = '12345'
 # 密码
